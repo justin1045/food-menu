@@ -48,7 +48,16 @@ function checkOrder() {
       // console.log(image);
       orderId.innerText = "Your Order Id : " + result.orderId;
 
-      itemDiv.append(image, orderId);
+      const feedback = document.createElement("form");
+      const textArea = document.createElement("textarea");
+      textArea.placeholder =  "Enter your feedback here!"
+      feedback.append(textArea)
+
+      const detailDiv = document.createElement("div");
+      detailDiv.append(orderId, feedback)
+      detailDiv.classList.add("detail-div")
+
+      itemDiv.append(image, detailDiv);
       foodContainer.append(itemDiv);
     }
   });
